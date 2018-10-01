@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{A718F2F6-A92A-51D4-985D-18E4FA7B9472}") = "Flick", "Assembly-CSharp.csproj", "{950E3644-5253-5F69-2CBB-432E0A44A6ED}"
+EndProject
+Project("{A718F2F6-A92A-51D4-985D-18E4FA7B9472}") = "Flick", "Assembly-CSharp-Editor.csproj", "{4335C092-96E0-F14C-1C20-AD39B1739B1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{950E3644-5253-5F69-2CBB-432E0A44A6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950E3644-5253-5F69-2CBB-432E0A44A6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950E3644-5253-5F69-2CBB-432E0A44A6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950E3644-5253-5F69-2CBB-432E0A44A6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4335C092-96E0-F14C-1C20-AD39B1739B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4335C092-96E0-F14C-1C20-AD39B1739B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4335C092-96E0-F14C-1C20-AD39B1739B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4335C092-96E0-F14C-1C20-AD39B1739B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
