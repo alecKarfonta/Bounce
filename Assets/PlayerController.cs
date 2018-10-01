@@ -287,7 +287,6 @@ public class PlayerController : MonoBehaviour {
 
 		lives -= 1;
 
-		rb.isKinematic = true;
 
 		death_particles.Play ();
 
@@ -312,9 +311,6 @@ public class PlayerController : MonoBehaviour {
 		//rb.MovePosition (start_pos);
 		//rb.MovePosition (start_pos);
 
-		//move_particles.Pause ();
-		//rb.position = start_pos;
-		//move_particles.Play ();
 		//rb.MovePosition (start_pos);
 		//Invoke("reset", .55f);
 	
@@ -347,12 +343,20 @@ public class PlayerController : MonoBehaviour {
 			current_scale = init_scale;
 			max_scale = init_scale;
 
-			yield return new WaitForSeconds (.25f);
-
-			rb.position = start_pos;
+			move_particles.Stop ();
+			yield return new WaitForSeconds (.35f);
 
 			rb.transform.localScale = new Vector3 (init_scale, init_scale, init_scale);
 
+			//rb.position = start_pos;
+			rb.MovePosition (start_pos);
+
+			yield return new WaitForSeconds (.05f);
+			rb.isKinematic = true;
+			yield return new WaitForSeconds (.25f);
+			move_particles.Play ();
+
+			//rb.position = start_pos;
 			//move_particles.Play ();
 			//rb.isKinematic = false;
 
