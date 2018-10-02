@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	private float current_scale = 1.0f;
 	public float max_scale = 10.0f;
 
-	public float boost_bounce_speed = 600.0f;
+	public float boost_bounce_speed = 700.0f;
 
 	public float scale_power_weight = 5.0f;
 	// Set the amount of power that should come form the distance of the input from the player
@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip win_sound;
 	public AudioClip die_sound;
 	public AudioClip move_sound;
+	public AudioClip power_loss_sound;
+	public AudioClip boost_sound;
+	public AudioClip pushdown_sound;
 	public Image power_bar_image;
 
 	public ParticleSystem user_input_particles;
@@ -152,6 +155,9 @@ public class PlayerController : MonoBehaviour {
 
 				is_moving = false;
 				power_sound_source.Stop ();
+
+				sound_source.pitch = Random.Range (low_pitch_range,high_pitch_range);
+				sound_source.PlayOneShot(power_loss_sound, .15f);
 
 			}
 		
@@ -272,7 +278,7 @@ public class PlayerController : MonoBehaviour {
 		timer_text.text = minutes + ":" + seconds;
 
 		// Check if below fail line
-		if (is_dead == false && is_started && rb.position.y < fail_line || rb.position.x < -200 || rb.position.x > 1200) {
+		if (is_dead == false && is_started == true && rb.position.y < fail_line || rb.position.x < -200 || rb.position.x > 1200) {
 			is_dead = true;
 			StartCoroutine(die());
 		}
@@ -319,6 +325,7 @@ public class PlayerController : MonoBehaviour {
 			level.GetComponent<LevelController> ().Lose ();
 			is_lost = true;
 			lifeImage.SetActive (false);
+			rb.isKinematic = true;
 
 		} else {
 			//move_particles.Pause ();
@@ -337,7 +344,6 @@ public class PlayerController : MonoBehaviour {
 
 			level.GetComponent<LevelController> ().Reset ();
 
-			is_dead = false;
 
 
 			current_scale = init_scale;
@@ -355,6 +361,8 @@ public class PlayerController : MonoBehaviour {
 			rb.isKinematic = true;
 			yield return new WaitForSeconds (.25f);
 			move_particles.Play ();
+
+			is_dead = false;
 
 			//rb.position = start_pos;
 			//move_particles.Play ();
@@ -386,6 +394,7 @@ public class PlayerController : MonoBehaviour {
 
 			is_won = true;
 
+			power_sound_source.Stop ();
 			// Freeze player
 			rb.isKinematic = true;
 			sound_source.pitch = .7f;
@@ -404,6 +413,8 @@ public class PlayerController : MonoBehaviour {
 
 			player.GetComponent<Rigidbody> ().AddForce (movement * boost_bounce_speed);
 
+			sound_source.PlayOneShot(boost_sound,hitVol);
+
 		} else if (tag == "PushDown") {
 
 			// Bounce player
@@ -411,6 +422,7 @@ public class PlayerController : MonoBehaviour {
 
 			player.GetComponent<Rigidbody>().AddForce (movement * boost_bounce_speed);
 
+			sound_source.PlayOneShot(pushdown_sound,hitVol);
 		} else {
 
 			sound_source.PlayOneShot(bounce_sound,hitVol);
@@ -426,6 +438,6 @@ public class PlayerController : MonoBehaviour {
 	public void got_ring() {
 		Debug.Log ("Got ring");
 		max_scale += 2.0f;
-		move_max_power += 10.0f;
+		move_max_power += 5.0f;
 	}
 }

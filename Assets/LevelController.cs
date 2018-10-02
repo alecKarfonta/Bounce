@@ -26,6 +26,10 @@ public class LevelController : MonoBehaviour {
 
 	}
 
+	public void Restart() {
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		

@@ -64,6 +64,7 @@
      <None Include="Assets\Collect Me 8\Contents\Shaders\Additive Cheap.shader" />
      <None Include="Assets\Collect Me 8\Contents\Shaders\Unlit Reflective Rim.shader" />
      <None Include="Assets\Collect Me 8\Our Message.txt" />
+     <None Include="Assets\Resources\Skybox\skybox\WTFPL.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

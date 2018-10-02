@@ -54,6 +54,7 @@
      <None Include="Assets\Collect Me 8\Contents\Shaders\Additive Cheap.shader" />
      <None Include="Assets\Collect Me 8\Contents\Shaders\Unlit Reflective Rim.shader" />
      <None Include="Assets\Collect Me 8\Our Message.txt" />
+     <None Include="Assets\Resources\Skybox\skybox\WTFPL.txt" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/alec/Programming/Game/Flick/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
